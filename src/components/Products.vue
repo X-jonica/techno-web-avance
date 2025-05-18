@@ -47,6 +47,11 @@
 </template>
 
 <script>
+import img1 from '@/assets/img-produits/img_1.png'
+import img2 from '@/assets/img-produits/img_2.png'
+import img3 from '@/assets/img-produits/img_3.png'
+import img4 from '@/assets/img-produits/img_4.png'
+
 export default {
   name: "Products",
   data() {
@@ -56,25 +61,25 @@ export default {
           brand: "Off-White",
           name: "Out Of Office \"Ooo\" sneakers",
           price: 775,
-          image: "/src/assets/img-produits/img_1.png"
+          image: img1
         },
         {
           brand: "Nike",
           name: "Air Jordan 1 Retro High",
           price: 200,
-          image: "/src/assets/img-produits/img_2.png"
+          image: img2
         },
         {
           brand: "Nike",
           name: "Nike Air Force Premium",
           price: 98.23,
-          image: "/src/assets/img-produits/img_3.png"
+          image: img3
         },
         {
           brand: "Adidas",
           name: "DAILY 3.0 SHOES",
           price: 98.99,
-          image: "/src/assets/img-produits/img_4.png"
+          image: img4
         },
       ]
     }
