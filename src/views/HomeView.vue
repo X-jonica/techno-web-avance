@@ -1,8 +1,8 @@
 <script>
-import Footer from '../components/Footer.vue';
-import Header from '../components/Header.vue';
-import PromotionBanner from '../components/PromotionBanner.vue';
-
+import Footer from "../components/Footer.vue";
+import Header from "../components/Header.vue";
+import Products from "../components/Products.vue";
+import PromotionBanner from "../components/PromotionBanner.vue";
 
 export default {
     name: "HomeView",
@@ -10,6 +10,7 @@ export default {
         Header,
         Footer,
         PromotionBanner,
+        Products,
     },
 };
 </script>
@@ -20,12 +21,13 @@ export default {
         <Header />
 
         <!-- Contenu principal -->
-        <main class="flex-grow">
+        <main class="flex-grow mx-auto mb-6">
             <PromotionBanner />
 
             <!-- Autres sections à ajouter -->
-            <section class="container mx-auto px-4 py-8">
+            <section class="container mx-auto">
                 <!-- Vos produits/variantes ici -->
+                <Products />
             </section>
         </main>
 

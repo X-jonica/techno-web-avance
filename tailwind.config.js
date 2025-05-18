@@ -9,6 +9,9 @@ export default {
                 lg: "1024px",
                 xl: "1280px",
             },
+            fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+              },
         },
     },
     plugins: [],
