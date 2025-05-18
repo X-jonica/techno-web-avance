@@ -1,22 +1,20 @@
-# Vue 3 + Vite
+# Vue 3 + Vite + tailwind css
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Voir l'avancement du projet sur : [https://vercel.com/x-jonicas-projects/techno-web-avance/7PSxUhbM75oNszL45ssKmhQfk8i6]
 
 <<<<<<< HEAD
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
 =======
-### Compiles and hot-reloads for development
+### Pre-requis 
 ```
-npm run serve
+npm install
 ```
 
-### Compiles and minifies for production
+### Lnacement du projet 
+```
+npm run dev
+```
+
+### Build du projet 
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
->>>>>>> b62bafaf9adb16b97253e0b907f018c08d1fd923
