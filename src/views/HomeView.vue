@@ -21,11 +21,11 @@ export default {
         <Header />
 
         <!-- Contenu principal -->
-        <main class="flex-grow mb-6">
+        <main class="flex-grow mx-auto mb-6">
             <PromotionBanner />
 
             <!-- Autres sections à ajouter -->
-            <section class="container mx-auto">
+            <section class="container">
                 <!-- Vos produits/variantes ici -->
                 <Products />
             </section>

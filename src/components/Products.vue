@@ -35,10 +35,10 @@
       <div class="md:hidden flex mt-6">
         <div class="flex items-center gap-4">
           <button @click="scrollLeft" class="p-2 rounded-full hover:bg-gray-100 transition">
-            <img src="/public/homePage/icons8-left-arrow-50.png" alt="icon direction left" class="w-6 h-6">
+            <img src="/src/assets/icones/icons8-left-arrow-50.png" alt="icon direction left" class="w-6 h-6">
           </button>
           <button @click="scrollRight" class="p-2 rounded-full hover:bg-gray-100 transition">
-            <img src="/public/homePage/icons8-right-arrow-50.png" alt="icon direction right" class="w-6 h-6">
+            <img src="/src/assets/icones/icons8-right-arrow-50.png" alt="icon direction right" class="w-6 h-6">
           </button>
         </div>
       </div>
@@ -56,25 +56,25 @@ export default {
           brand: "Off-White",
           name: "Out Of Office \"Ooo\" sneakers",
           price: 775,
-          image: "/public/homePage/produits/img_1.png"
+          image: "/src/assets/img-produits/img_1.png"
         },
         {
           brand: "Nike",
           name: "Air Jordan 1 Retro High",
           price: 200,
-          image: "/public/homePage/produits/img_2.png"
+          image: "/src/assets/img-produits/img_2.png"
         },
         {
           brand: "Nike",
           name: "Nike Air Force Premium",
           price: 98.23,
-          image: "/public/homePage/produits/img_3.png"
+          image: "/src/assets/img-produits/img_3.png"
         },
         {
           brand: "Adidas",
           name: "DAILY 3.0 SHOES",
           price: 98.99,
-          image: "/public/homePage/produits/img_4.png"
+          image: "/src/assets/img-produits/img_4.png"
         },
       ]
     }
