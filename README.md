@@ -3,17 +3,21 @@
 Voir l'avancement du projet sur : [https://techno-web-avance.vercel.app/]
 
 =======
-### Pre-requis 
+
+### Pre-requis
+
 ```
 npm install
 ```
 
-### Lnacement du projet 
+### Lancement du projet
+
 ```
 npm run dev
 ```
 
-### Build du projet 
+### Build du projet
+
 ```
 npm run build
 ```
