@@ -289,9 +289,9 @@
                 product: null,
                 quantity: 1,
                 productFeatures: [],
-                allProducts: [], // Pour stocker tous les produits
-                currentProductIndex: 0, // Index du produit actuel
-                totalProducts: 0 // Nombre total de produits
+                allProducts: [], 
+                currentProductIndex: 0, 
+                totalProducts: 0 
             }
         },
         async created() {
@@ -378,16 +378,19 @@
 
             async addToCart() {
                 try {
-                    const response = await axios.post('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier', {
+                    const currentUser = JSON.parse(
+                        localStorage.getItem('user') || sessionStorage.getItem('user')
+                    )
+
+                    await axios.post('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier', {
+                        utilisateur_id: currentUser.id, 
                         chossure_id: this.product.id,
                         quantite: this.quantity
                     })
-
-                    console.log('Produit ajouté au panier:', response.data)
-                    alert('Produit ajouté au panier avec succès!')
+                    alert("'Produit ajouté au panier avec succès !")
+                    console.log('Produit ajouté au panier !')
                 } catch (error) {
                     console.error("Erreur lors de l'ajout au panier:", error)
-                    alert("Une erreur est survenue lors de l'ajout au panier")
                 }
             }
         }

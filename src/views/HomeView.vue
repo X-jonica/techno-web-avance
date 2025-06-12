@@ -16,7 +16,6 @@
 <script>
 import Footer from "../components/Footer.vue";
 import Header from "../components/Header.vue";
-import Panier from "../components/Panier.vue";
 import ProduitList from "../components/ProduitList.vue";
 import PromotionBanner from "../components/PromotionBanner.vue";
 
@@ -27,7 +26,7 @@ export default {
       Footer,
       PromotionBanner,
       ProduitList,
-      Panier,
+      
    },
 };
 </script>

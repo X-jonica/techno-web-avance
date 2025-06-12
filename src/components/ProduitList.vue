@@ -102,7 +102,7 @@
                             v-for="(product, index) in products"
                             :key="index"
                             class="w-full h-auto"
-                            @click="goToProduct(product.id)"
+                            
                         >
                             <!-- product card -->
                             <div
@@ -141,7 +141,6 @@
 
 <script>
     import axios from 'axios'
-    import { useRouter } from 'vue-router'
 
     export default {
         name: 'ProduitList',

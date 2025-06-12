@@ -8,9 +8,9 @@
 
         <div v-else class="flex flex-col lg:flex-row gap-8">
             <!-- Colonne de droite - Récapitulatif (en premier pour mobile) -->
-            <div class="w-full lg:w-1/3 order-first lg:order-last">
+            <div class="w-[460px] h-[509px] lg:w-1/3 order-first lg:order-last">
                 <div
-                    class="w-full lg:w-[460px] bg-[#FFFFFF] border shadow-[0px_4.44px_66.67px_0px_rgba(0,0,0,0.08)] p-6 lg:p-8 rounded-[20px] lg:sticky lg:top-8 mb-6 lg:mb-0"
+                    class="w-full lg:w-[460px] bg-[#FFFFFF] border shadow-[0px_4.44px_66.67px_0px_rgba(0,0,0,0.08)] p-6 lg:p-8 rounded-[20px] lg:sticky mb-6 lg:mb-0"
                 >
                     <h2 class="font-[700] text-2xl md:text-[36px] leading-[48px] mb-4">Summary</h2>
 
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Colonne de gauche - Articles -->
-            <div class="w-full lg:w-2/3 order-last lg:order-first">
+            <div class="w-[582px] h-[509px] lg:w-/3 order-last lg:order-first">
                 <div v-if="cartItems.length === 0" class="text-center py-10">
                     <p class="text-lg">Your cart is empty</p>
                 </div>
@@ -97,19 +97,19 @@
                     >
                         <div class="w-full sm:w-1/3 lg:w-1/4">
                             <div
-                                class="w-full max-w-[165px] h-[166px] bg-gray-100 rounded-[18.77px] flex items-center justify-center overflow-hidden"
+                                class="w-[165px] max-w-[165px] h-[166px] bg-gray-100 rounded-[18.77px] flex items-center justify-center overflow-hidden"
                             >
                                 <img
                                     :src="
                                         item.Chossure.image_url ||
-                                        'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/uploads/default.png'
+                                        'http://localhost:4000/uploads/default.png'
                                     "
                                     :alt="item.Chossure.nom"
                                     class="w-full h-full object-contain mix-blend-darken"
                                 />
                             </div>
                         </div>
-                        <div class="w-full sm:w-2/3 lg:w-3/4 sm:mx-4 lg:mx-10">
+                        <div class="w-full sm:w-2/3 lg:w-3/4 sm:mx-6 lg:mx-10">
                             <div class="flex justify-between">
                                 <h2 class="font-[700] text-lg md:text-[20px] leading-[24px]">
                                     {{ item.Chossure.marque }}
@@ -176,14 +176,28 @@
             }
         },
         async created() {
+            // Récupérer l'utilisateur connecté
+            let userString = localStorage.getItem('user') || sessionStorage.getItem('user')
+            this.currentUser = userString ? JSON.parse(userString) : null
+
             await this.fetchCartItems()
         },
         methods: {
             async fetchCartItems() {
+                if (!this.currentUser) {
+                    this.loading = false
+                    return
+                }
+
                 try {
-                    const response = await axios.get('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier')
+                    const response = await axios.get('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier', {
+                        params: {
+                            utilisateur_id: this.currentUser.id
+                        }
+                    })
                     this.cartItems = response.data.data || response.data
                     this.loading = false
+                    console.log('panier recupéré !')
                 } catch (error) {
                     console.error('Error fetching cart items:', error)
                     this.loading = false
