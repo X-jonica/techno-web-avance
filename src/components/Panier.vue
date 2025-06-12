@@ -102,7 +102,7 @@
                                 <img
                                     :src="
                                         item.Chossure.image_url ||
-                                        'http://localhost:4000/uploads/default.png'
+                                        'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/uploads/default.png'
                                     "
                                     :alt="item.Chossure.nom"
                                     class="w-full h-full object-contain mix-blend-darken"
@@ -181,7 +181,7 @@
         methods: {
             async fetchCartItems() {
                 try {
-                    const response = await axios.get('http://localhost:4000/api/panier')
+                    const response = await axios.get('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier')
                     this.cartItems = response.data.data || response.data
                     this.loading = false
                 } catch (error) {
@@ -193,7 +193,7 @@
                 if (newQuantity < 1) return
 
                 try {
-                    await axios.put(`http://localhost:4000/api/panier/${itemId}`, {
+                    await axios.put(`https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`, {
                         quantite: newQuantity
                     })
                     await this.fetchCartItems()
@@ -208,7 +208,7 @@
                 if (!confirmed) return
 
                 try {
-                    await axios.delete(`http://localhost:4000/api/panier/${itemId}`)
+                    await axios.delete(`https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`)
                     await this.fetchCartItems()
                 } catch (error) {
                     console.error('Error removing item:', error)
