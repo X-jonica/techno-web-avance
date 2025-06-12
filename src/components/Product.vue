@@ -57,9 +57,7 @@
                 <h2 class="text-lg font-normal text-[#67696E] mb-3">
                     {{ product.nom }}
                 </h2>
-                <p class="text-xl font-medium mb-4">
-                    ${{ product.prix }}
-                </p>
+                <p class="text-xl font-medium mb-4">${{ product.prix }}</p>
 
                 <div class="w-full h-[1px] bg-[#E9EBEE] my-4"></div>
 
@@ -212,7 +210,9 @@
                                 >
                                     -
                                 </button>
-                                <span class="flex-1 text-center font-[700] text-[18px] text-[#201B21]">
+                                <span
+                                    class="flex-1 text-center font-[700] text-[18px] text-[#201B21]"
+                                >
                                     {{ quantity }}
                                 </span>
                                 <button
@@ -357,24 +357,38 @@
                 }
             },
 
-            // Vos autres méthodes existantes...
+            // Extraction des caractéristiques
             extractFeatures() {
                 const featureRegex = /-\s*(.*?)(?=\n-|$)/g
                 const matches = [...this.product.description.matchAll(featureRegex)]
                 this.productFeatures = matches.map(match => match[1].trim())
             },
+
             incrementQuantity() {
                 if (this.quantity < (this.product.stock || 10)) {
                     this.quantity++
                 }
             },
+
             decrementQuantity() {
                 if (this.quantity > 1) {
                     this.quantity--
                 }
             },
-            addToCart() {
-                console.log(`Added ${this.quantity} of ${this.product.nom} to cart`)
+
+            async addToCart() {
+                try {
+                    const response = await axios.post('http://localhost:4000/api/panier', {
+                        chossure_id: this.product.id,
+                        quantite: this.quantity
+                    })
+
+                    console.log('Produit ajouté au panier:', response.data)
+                    alert('Produit ajouté au panier avec succès!')
+                } catch (error) {
+                    console.error("Erreur lors de l'ajout au panier:", error)
+                    alert("Une erreur est survenue lors de l'ajout au panier")
+                }
             }
         }
     }

@@ -1,6 +1,14 @@
 <script>
 export default {
    name: "Header",
+   methods: {
+      navigateToCart() {
+         this.$router.push('/panier'); 
+      },
+      navigateToHome() {
+         this.$router.push('/'); 
+      }
+   }
 };
 </script>
 
@@ -14,14 +22,15 @@ export default {
                <!-- Icône soleil -->
                <img src="/public/icon.svg" alt="icone enterprise" />
 
-               <span class="text-2xl font-bold tracking-tight mx-2"
+               <span @click="navigateToHome" class="text-2xl font-bold tracking-tight mx-2 cursor-pointer"
                   >SUN CO.</span
                >
             </div>
 
             <!-- Bouton Panier - Visible sur tous les appareils -->
             <button
-               class="flex items-center space-x-1 group border border-black rounded-lg px-4 py-2"
+               @click="navigateToCart"
+               class="flex items-center space-x-1 group border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition-colors"
             >
                <svg
                   xmlns="http://www.w3.org/2000/svg"
