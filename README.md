@@ -2,7 +2,7 @@
 
 > Un projet complet avec un frontend développé en Vue 3 + Vite + Tailwind CSS et un backend développé en Node.js + Express + PostgreSQL + Sequelize, avec une documentation Swagger intégrée.
 
-![Banner](https://techno-web-avance.vercel.app/)
+# demo : 👉 [https://techno-web-avance.vercel.app/] 👈
 
 ---
 
