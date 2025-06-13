@@ -34,6 +34,7 @@
 
                     <div
                         class="w-[302px] h-[48px] mt-[40px] rounded-[10px] px-[80px] py-[12px] bg-[#201B21] flex items-center justify-center gap-[10px] cursor-pointer mx-auto"
+                        @click="navigateToLogin"
                     >
                         <span class="font-inter font-bold text-[16px] leading-[20px] text-white">
                             Shop Now

@@ -190,11 +190,15 @@
                 }
 
                 try {
-                    const response = await axios.get('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier', {
-                        params: {
-                            utilisateur_id: this.currentUser.id
+                    const response = await axios.get(
+                        'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier',
+                        {
+                            headers: {
+                                'utilisateur-id': this.currentUser.id
+                            }
                         }
-                    })
+                    )
+
                     this.cartItems = response.data.data || response.data
                     this.loading = false
                     console.log('panier recupéré !')
@@ -207,9 +211,12 @@
                 if (newQuantity < 1) return
 
                 try {
-                    await axios.put(`https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`, {
-                        quantite: newQuantity
-                    })
+                    await axios.put(
+                        `https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`,
+                        {
+                            quantite: newQuantity
+                        }
+                    )
                     await this.fetchCartItems()
                 } catch (error) {
                     console.error('Error updating quantity:', error)
@@ -222,7 +229,9 @@
                 if (!confirmed) return
 
                 try {
-                    await axios.delete(`https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`)
+                    await axios.delete(
+                        `https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`
+                    )
                     await this.fetchCartItems()
                 } catch (error) {
                     console.error('Error removing item:', error)
