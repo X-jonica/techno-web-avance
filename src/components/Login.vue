@@ -154,7 +154,7 @@
 
                 try {
                     const response = await fetch(
-                        'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/utilisateurs/connexion',
+                        'https://backend-technoweb-avance.onrender.com/api/utilisateurs/connexion',
                         {
                             method: 'POST',
                             headers: {
@@ -179,7 +179,7 @@
 
                     // Récupérer le premier produit depuis l'API puis rediriger
                     const productsResponse = await fetch(
-                        'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/chossures'
+                        'https://backend-technoweb-avance.onrender.com/api/chossures'
                     )
                     const productsData = await productsResponse.json()
 

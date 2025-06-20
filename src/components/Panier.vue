@@ -289,7 +289,7 @@ export default {
 
             try {
                 const response = await axios.get(
-                    'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier',
+                    'https://backend-technoweb-avance.onrender.com/api/panier',
                     {
                         headers: {
                             'utilisateur-id': this.currentUser.id
@@ -309,7 +309,7 @@ export default {
 
             try {
                 await axios.put(
-                    `https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`,
+                    `https://backend-technoweb-avance.onrender.com/api/panier/${itemId}`,
                     {
                         quantite: newQuantity
                     }
@@ -327,7 +327,7 @@ export default {
 
             try {
                 await axios.delete(
-                    `https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier/${itemId}`
+                    `https://backend-technoweb-avance.onrender.com/api/panier/${itemId}`
                 )
                 await this.fetchCartItems()
             } catch (error) {

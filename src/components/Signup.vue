@@ -169,7 +169,7 @@
 
                 try {
                     const response = await fetch(
-                        'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/utilisateurs/inscription',
+                        'https://backend-technoweb-avance.onrender.com/api/utilisateurs/inscription',
                         {
                             method: 'POST',
                             headers: {

@@ -5,7 +5,7 @@
             <!-- Image produit -->
             <div class="w-full h-[300px] rounded-[20px] flex items-center justify-center">
                 <img
-                    :src="product.image_url || 'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/uploads/img_4.png'"
+                    :src="product.image_url || 'https://backend-technoweb-avance.onrender.com/uploads/img_4.png'"
                     :alt="product.nom"
                     class="w-full h-full rounded-[20px] object-cover"
                 />
@@ -134,7 +134,7 @@
                         class="w-[546px] h-[375px] rounded-[20px] flex items-center justify-center p-4 md:p-8"
                     >
                         <img
-                            :src="product.image_url || 'https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/uploads/img_4.png'"
+                            :src="product.image_url || 'https://backend-technoweb-avance.onrender.com/uploads/img_4.png'"
                             :alt="product.nom"
                             class="w-[546px] h-[375px] rounded-[20px] object-cover"
                         />
@@ -298,11 +298,11 @@
             try {
                 // Charger le produit actuel
                 const id = this.$route.params.id
-                const productResponse = await axios.get(`https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/chossures/${id}`)
+                const productResponse = await axios.get(`https://backend-technoweb-avance.onrender.com/api/chossures/${id}`)
                 this.product = productResponse.data.data
 
                 // Charger tous les produits pour la navigation
-                const allProductsResponse = await axios.get('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/chossures')
+                const allProductsResponse = await axios.get('https://backend-technoweb-avance.onrender.com/api/chossures')
                 this.allProducts = allProductsResponse.data.data
                 this.totalProducts = this.allProducts.length
 
@@ -344,7 +344,7 @@
             async loadProductData(productId) {
                 try {
                     const response = await axios.get(
-                        `https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/chossures/${productId}`
+                        `https://backend-technoweb-avance.onrender.com/api/chossures/${productId}`
                     )
                     this.product = response.data.data
                     this.currentProductIndex = this.allProducts.findIndex(p => p.id === productId)
@@ -382,7 +382,7 @@
                         localStorage.getItem('user') || sessionStorage.getItem('user')
                     )
 
-                    await axios.post('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/panier', {
+                    await axios.post('https://backend-technoweb-avance.onrender.com/api/panier', {
                         utilisateur_id: currentUser.id, 
                         chossure_id: this.product.id,
                         quantite: this.quantity

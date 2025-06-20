@@ -169,7 +169,7 @@
 
             async fetchProducts() {
                 try {
-                    const response = await axios.get('https://grieving-tonie-x-jonica-0a1c8b87.koyeb.app/api/chossures')
+                    const response = await axios.get('https://backend-technoweb-avance.onrender.com/api/chossures')
                     console.log("Données Chossures récupérées depuis l'API :", response.data)
 
                     this.products = response.data.data.map(item => ({
