@@ -5,7 +5,10 @@
             <!-- Image produit -->
             <div class="w-full h-[300px] rounded-[20px] flex items-center justify-center">
                 <img
-                    :src="product.image_url || 'https://backend-technoweb-avance.onrender.com/uploads/img_4.png'"
+                    :src="
+                        product.image_url ||
+                        'https://backend-technoweb-avance.onrender.com/uploads/img_4.png'
+                    "
                     :alt="product.nom"
                     class="w-full h-full rounded-[20px] object-cover"
                 />
@@ -134,7 +137,10 @@
                         class="w-[546px] h-[375px] rounded-[20px] flex items-center justify-center p-4 md:p-8"
                     >
                         <img
-                            :src="product.image_url || 'https://backend-technoweb-avance.onrender.com/uploads/img_4.png'"
+                            :src="
+                                product.image_url ||
+                                'https://backend-technoweb-avance.onrender.com/uploads/img_4.png'
+                            "
                             :alt="product.nom"
                             class="w-[546px] h-[375px] rounded-[20px] object-cover"
                         />
@@ -289,20 +295,24 @@
                 product: null,
                 quantity: 1,
                 productFeatures: [],
-                allProducts: [], 
-                currentProductIndex: 0, 
-                totalProducts: 0 
+                allProducts: [],
+                currentProductIndex: 0,
+                totalProducts: 0
             }
         },
         async created() {
             try {
                 // Charger le produit actuel
                 const id = this.$route.params.id
-                const productResponse = await axios.get(`https://backend-technoweb-avance.onrender.com/api/chossures/${id}`)
+                const productResponse = await axios.get(
+                    `https://backend-technoweb-avance.onrender.com/api/chossures/${id}`
+                )
                 this.product = productResponse.data.data
 
                 // Charger tous les produits pour la navigation
-                const allProductsResponse = await axios.get('https://backend-technoweb-avance.onrender.com/api/chossures')
+                const allProductsResponse = await axios.get(
+                    'https://backend-technoweb-avance.onrender.com/api/chossures'
+                )
                 this.allProducts = allProductsResponse.data.data
                 this.totalProducts = this.allProducts.length
 
@@ -383,11 +393,11 @@
                     )
 
                     await axios.post('https://backend-technoweb-avance.onrender.com/api/panier', {
-                        utilisateur_id: currentUser.id, 
+                        utilisateur_id: currentUser.id,
                         chossure_id: this.product.id,
                         quantite: this.quantity
                     })
-                    alert("'Produit ajouté au panier avec succès !")
+                    alert('Produit ajouté au panier avec succès !')
                     console.log('Produit ajouté au panier !')
                 } catch (error) {
                     console.error("Erreur lors de l'ajout au panier:", error)
